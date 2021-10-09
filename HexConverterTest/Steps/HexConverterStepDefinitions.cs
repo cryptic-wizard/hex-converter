@@ -1,6 +1,8 @@
 ﻿using TechTalk.SpecFlow;
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
+using System.Linq;
 
 namespace HexConverter
 {
@@ -8,6 +10,10 @@ namespace HexConverter
     public sealed class HexConverterStepDefinitions
     {
         private readonly ScenarioContext _scenarioContext;
+        private static Stopwatch sw = new Stopwatch();
+        private long LinqTicks = 0;
+        private long HexConverterTicks = 0;
+
         private byte[] ByteArray;
         private bool ExceptionThrown = false;
         private string Hex;
@@ -25,6 +31,11 @@ namespace HexConverter
             Hex = null;
             HexArray = null;
             ExceptionThrown = false;
+            LinqTicks = 0;
+            HexConverterTicks = 0;
+
+            sw.Stop();
+            sw.Reset();
         }
 
         #region GivenSteps
@@ -79,7 +90,7 @@ namespace HexConverter
         {
             try
             {
-                Hex = HexConverter.ToHex(ByteArray);
+                Hex = HexConverter.GetHex(ByteArray);
             }
             catch (Exception)
             {
@@ -92,7 +103,7 @@ namespace HexConverter
         {
             try
             {
-                ByteArray = HexConverter.ToByteArray(Hex);
+                ByteArray = HexConverter.GetBytes(Hex);
             }
             catch(Exception)
             {
@@ -106,12 +117,54 @@ namespace HexConverter
         {
             try
             {
-                ByteArray = HexConverter.ToByteArray(HexArray);
+                ByteArray = HexConverter.GetBytes(HexArray);
             }
             catch (Exception)
             {
                 ExceptionThrown = true;
             }
+        }
+
+        [When(@"I race Linq Concat with (\d+) bytes")]
+        public void WhenIRaceLinqConcatWithXBytes(int qty)
+        {
+            ByteArray = new byte[qty];
+            new Random().NextBytes(ByteArray);
+
+            sw.Restart();
+            string.Concat(ByteArray.Select(b => b.ToString("x2")));
+            sw.Stop();
+            LinqTicks = sw.ElapsedTicks;
+            Console.WriteLine(LinqTicks.ToString() + " = Linq");
+
+            sw.Restart();
+            HexConverter.GetHex(ByteArray);
+            sw.Stop();
+            HexConverterTicks = sw.ElapsedTicks;
+            Console.WriteLine(HexConverterTicks.ToString() + " = HexConverter");
+        }
+
+        [When(@"I race Linq Select with (\d+) bytes")]
+        public void WhenIRaceLinqSelectWithXBytes(int qty)
+        {
+            ByteArray = new byte[qty];
+            new Random().NextBytes(ByteArray);
+            Hex = HexConverter.GetHex(ByteArray);
+
+            sw.Restart();
+            Enumerable.Range(0, Hex.Length)
+               .Where(x => x % 2 == 0)
+               .Select(x => Convert.ToByte(Hex.Substring(x, 2), 16))
+               .ToArray();
+            sw.Stop();
+            LinqTicks = sw.ElapsedTicks;
+            Console.WriteLine(LinqTicks.ToString() + " = Linq");
+
+            sw.Restart();
+            HexConverter.GetBytes(Hex);
+            sw.Stop();
+            HexConverterTicks = sw.ElapsedTicks;
+            Console.WriteLine(HexConverterTicks.ToString() + " = HexConverter");
         }
 
         #endregion
@@ -149,6 +202,12 @@ namespace HexConverter
         public void ThenAnExceptionWasThrown()
         {
             Assert.IsTrue(ExceptionThrown);
+        }
+
+        [Then(@"HexConverter is faster")]
+        public void ThenHexConverterIsFaster()
+        {
+            Assert.Less(HexConverterTicks, LinqTicks);
         }
 
         #endregion

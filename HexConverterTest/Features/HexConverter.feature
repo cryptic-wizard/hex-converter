@@ -65,3 +65,25 @@ Scenario: Null String To ByteArray
 	Given I have a null string
 	When I convert the string to a byte array
 	Then an exception was thrown
+
+Scenario Outline: Faster Than Linq Concat
+	When I race Linq Concat with <qty> bytes
+	Then HexConverter is faster
+
+	Examples:
+	| qty    |
+	| 100    |
+	| 1000   |
+	| 10000  |
+	| 100000 |
+
+Scenario Outline: Faster Than Linq Select
+	When I race Linq Select with <qty> bytes
+	Then HexConverter is faster
+
+	Examples:
+	| qty    |
+	| 100    |
+	| 1000   |
+	| 10000  |
+	| 100000 |
