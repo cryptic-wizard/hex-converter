@@ -1,7 +1,10 @@
-# Compiled C#
+# C#
 */bin
 */obj
 
 # VS User Settings
 *.vs/
 *.user
+
+# Specflow
+*.feature.cs

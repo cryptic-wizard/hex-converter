@@ -5,6 +5,18 @@ namespace HexConverter
 {
     public static class HexConverter
     {
+        public enum ErrorType
+        {
+            None,
+            InvalidLength,
+            InvalidChar,
+        }
+
+        public static readonly List<char> HexChars = new List<char>
+        {
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+        };
+
         public static readonly Dictionary<byte, string> ByteToHex = new Dictionary<byte, string>
         {
             { 0    , "00" },      { 16   , "10" },      { 32   , "20" },      { 48   , "30" },
@@ -146,5 +158,79 @@ namespace HexConverter
             { "CE" , 206  },      { "DE" , 222  },      { "EE" , 238  },      { "FE" , 254  },
             { "CF" , 207  },      { "DF" , 223  },      { "EF" , 239  },      { "FF" , 255  },
         };
+
+        public static string ToHex(byte[] bytes)
+        {
+            if(bytes == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            string hex = "";
+
+            foreach (byte b in bytes)
+            {
+                hex += ByteToHex[b];
+            }
+
+            return hex;
+        }
+
+        public static byte[] ToByteArray(string[] hex)
+        {
+            if (hex == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            byte[] byteArray = new byte[hex.Length];
+
+            for (int i = 0; i < hex.Length; i++)
+            {
+                if (HexToByte.ContainsKey(hex[i]))
+                {
+                    byteArray[i] = HexToByte[hex[i]];
+                }
+                else
+                {
+                    throw new ArgumentException(hex[i].ToString() + " is not a valid hex string");
+                }
+            }
+
+            return byteArray;
+        }
+
+        public static byte[] ToByteArray(string hex)
+        {
+            if (hex == null)
+            {
+                throw new ArgumentNullException();
+            }
+            else if (hex.Length % 2 != 0)
+            {
+                throw new ArgumentException("Hex string length does not have a factor of 2");
+            }
+
+            string substring;
+            byte[] byteArray = new byte[hex.Length / 2];
+
+            for (int i = 0; i < byteArray.Length; i++)
+            {
+                substring = hex.Substring((i*2), 2);
+
+                if(HexToByte.ContainsKey(substring))
+                {
+                    byteArray[i] = HexToByte[substring];
+                }
+                else
+                {
+                    throw new ArgumentException(substring + " is not a valid hex string");
+                }
+            }
+
+            return byteArray;
+        }
+
     }
+
 }
