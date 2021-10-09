@@ -13,5 +13,55 @@ Scenario Outline: Byte Array To Hex
 
 Scenario: Null Byte Array To Hex
 	Given I have a null byte array
-	When I attempt to convert the byte array to hex
+	When I convert the byte array to hex
+	Then an exception was thrown
+
+Scenario Outline: String Array To Byte Array
+	Given I have string array <hexArray>
+	When I convert the string array to a byte array
+	Then the result array is <bytes>
+
+	Examples:
+	| hexArray    | bytes       |
+	| 2A,54,FF,00 | 42,84,255,0 |
+	| FF          | 255         |
+
+Scenario Outline: Invalid String Array To ByteArray
+	Given I have string array <hexArray>
+	When I convert the string array to a byte array
+	Then an exception was thrown
+
+	Examples:
+	| hexArray    |
+	| 2A,54,F,00  |
+	| FX          |
+
+Scenario: Null String Array To ByteArray
+	Given I have a null string array
+	When I convert the string array to a byte array
+	Then an exception was thrown
+
+Scenario Outline: String To Byte Array
+	Given I have hex string <hex>
+	When I convert the string to a byte array
+	Then the result array is <bytes>
+
+	Examples:
+	| hex      | bytes       |
+	| 2A54FF00 | 42,84,255,0 |
+	| FF       | 255         |
+
+Scenario Outline: Invalid String To ByteArray
+	Given I have hex string <hex>
+	When I convert the string to a byte array
+	Then an exception was thrown
+
+	Examples:
+	| hex      |
+	| 2A54F00  |
+	| FX       |
+
+Scenario: Null String To ByteArray
+	Given I have a null string
+	When I convert the string to a byte array
 	Then an exception was thrown

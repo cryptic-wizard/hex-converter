@@ -230,7 +230,5 @@ namespace HexConverter
 
             return byteArray;
         }
-
     }
-
 }
