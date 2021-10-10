@@ -7,7 +7,7 @@ namespace HexConverter
     {
         public static readonly List<char> HexChars = new List<char>
         {
-            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
+            '0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'
         };
 
         public static readonly Dictionary<byte, string> ByteToHex = new Dictionary<byte, string>
@@ -84,6 +84,11 @@ namespace HexConverter
             {"8F",143},{"9F",159},{"AF",175},{"BF",191},{"CF",207},{"DF",223},{"EF",239},{"FF",255},
         };
 
+        /// <summary>
+        /// Gets a hexadecimal string
+        /// </summary>
+        /// <param name="bytes"> raw bytes </param>
+        /// <returns> Ex. "2A54FF00" </returns>
         public static string GetHex(byte[] bytes)
         {
             if(bytes == null)
@@ -101,6 +106,11 @@ namespace HexConverter
             return string.Concat(hexArray);
         }
 
+        /// <summary>
+        /// Gets a hexadecimal string array
+        /// </summary>
+        /// <param name="bytes"> raw bytes </param>
+        /// <returns> Ex. { "2A", "54", "FF", "00" } </returns>
         public static string[] GetHexArray(byte[] bytes)
         {
             if (bytes == null)
@@ -118,6 +128,11 @@ namespace HexConverter
             return hexArray;
         }
 
+        /// <summary>
+        /// Gets a hexadecimal string list
+        /// </summary>
+        /// <param name="bytes"> raw bytes </param>
+        /// <returns> Ex. { "2A", "54", "FF", "00" } </returns>
         public static List<string> GetHexList(byte[] bytes)
         {
             if (bytes == null)
@@ -125,7 +140,7 @@ namespace HexConverter
                 throw new ArgumentNullException();
             }
 
-            List<string> hexArray = new List<string>();
+            List<string> hexArray = new List<string>(bytes.Length);
 
             for (int i = 0; i < bytes.Length; i++)
             {
@@ -135,6 +150,11 @@ namespace HexConverter
             return hexArray;
         }
 
+        /// <summary>
+        /// Gets raw bytes from hexadecimal string array
+        /// </summary>
+        /// <param name="hex"> hexadecimal string array </param>
+        /// <returns></returns>
         public static byte[] GetBytes(string[] hex)
         {
             if(hex == null)
@@ -152,6 +172,11 @@ namespace HexConverter
             return byteArray;
         }
 
+        /// <summary>
+        /// Gets raw bytes from hexadecimal string list
+        /// </summary>
+        /// <param name="hex"> hexadecimal string list </param>
+        /// <returns></returns>
         public static byte[] GetBytes(List<string> hex)
         {
             if (hex == null)
@@ -169,6 +194,11 @@ namespace HexConverter
             return byteArray;
         }
 
+        /// <summary>
+        /// Gets raw bytes from hexadecimal string
+        /// </summary>
+        /// <param name="hex"> hexadecimal string </param>
+        /// <returns></returns>
         public static byte[] GetBytes(string hex)
         {
             if(hex == null)
