@@ -17,13 +17,13 @@ jobs:
         dotnet-version: '5.0.x'
     - uses: cryptic-wizard/run-specflow-tests@v1.2.0
       with:
-        test-assembly-path: HexConverter/bin/Release/net5.0
-        test-assembly-dll: HexConverter.dll
+        test-assembly-path: HexConverterTest/bin/Release/net5.0
+        test-assembly-dll: HexConverterTest.dll
         test-execution-json: TestExecution.json
-        output-html: HexConverter.html
+        output-html: HexConverterResults.html
         framework: net5.0
     - if: success() || failure()
       uses: actions/upload-artifact@v2
       with:
         name: HexConverterTestResults
-        path: HexConverter.html
+        path: HexConverterResults.html
