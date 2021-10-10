@@ -1,0 +1,26 @@
+name: NuGet Publish
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  Nuget:
+    name: Nuget Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup .NET 5.0
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '5.0.x'
+      - name: Setup .NET Core 3.1
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '3.1.x'
+      - name: Publish NuGet Package
+        run: |
+          dotnet nuget add source "https://nuget.pkg.github.com/cryptic-wizard/index.json" -n github -u cryptic-wizard -p ${{ secrets.NUGET_PUBLISH_TOKEN }} --store-password-in-clear-text
+          dotnet pack HexConverter -c Release
+          dotnet nuget push "HexConverter/bin/Release/HexConverter.*.*.*.nupkg" -s "github" -k ${{ secrets.NUGET_PUBLISH_TOKEN }} --skip-duplicate

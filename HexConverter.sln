@@ -11,12 +11,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
 		.github\workflows\dotnetcore.yml = .github\workflows\dotnetcore.yml
 		LICENSE.md = LICENSE.md
+		.github\workflows\nuget.yml = .github\workflows\nuget.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexConverterTest", "HexConverterTest\HexConverterTest.csproj", "{082EC445-88E3-4AC9-9668-A13B5C0EA16E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexConverterTest", "HexConverterTest\HexConverterTest.csproj", "{082EC445-88E3-4AC9-9668-A13B5C0EA16E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexConverterConsole", "HexConverterConsole\HexConverterConsole.csproj", "{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexConverterConsole", "HexConverterConsole\HexConverterConsole.csproj", "{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
