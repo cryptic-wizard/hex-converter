@@ -98,6 +98,19 @@ namespace HexConverter
             }
         }
 
+        [When(@"I convert the byte array to a hex array")]
+        public void WhenIConvertTheByteArrayToAHexArray()
+        {
+            try
+            {
+                HexArray = HexConverter.GetHexArray(ByteArray);
+            }
+            catch (Exception)
+            {
+                ExceptionThrown = true;
+            }
+        }
+
         [When(@"I convert the string to a byte array")]
         public void WhenIConvertTheStringToAByteArray()
         {
@@ -177,8 +190,21 @@ namespace HexConverter
             Assert.AreEqual(result, Hex, "ERROR - " + result + " != " + Hex);
         }
 
-        [Then(@"the result array is (.*)")]
-        public void ThenTheResultArrayIs(string byteString)
+        [Then(@"the result string array is (.*)")]
+        public void ThenTheResultStringArrayIsX(string result)
+        {
+            Assert.IsNotNull(HexArray);
+            string[] split = result.Split(',');
+            Assert.AreEqual(split.Length, HexArray.Length, "Length of byte array did not match");
+
+            for (int i = 0; i < split.Length; i++)
+            {
+                Assert.AreEqual(result[i], HexArray[i], "ERROR - " + result[i] + " != " + HexArray[i]);
+            }
+        }
+
+        [Then(@"the result byte array is (.*)")]
+        public void ThenTheResultByteArrayIs(string byteString)
         {
             Assert.IsNotNull(ByteArray);
 
