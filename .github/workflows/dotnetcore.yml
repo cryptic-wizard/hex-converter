@@ -1,0 +1,29 @@
+name: .NET Core 3.1
+on:
+  push:
+    #branches: [ main ]
+  #pull_request:
+    #branches: [ main ]
+
+jobs:
+  BuildAndTest:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '3.1.x'
+    - uses: cryptic-wizard/run-specflow-tests@v1.2.0
+      with:
+        test-assembly-path: HexConverter/bin/Release/netcoreapp3.1
+        test-assembly-dll: HexConverter.dll
+        test-execution-json: TestExecution.json
+        output-html: HexConverter.html
+        framework: netcoreapp3.1
+    - if: success() || failure()
+      uses: actions/upload-artifact@v2
+      with:
+        name: HexConverterTestResults
+        path: HexConverter.html

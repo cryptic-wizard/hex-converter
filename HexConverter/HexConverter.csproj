@@ -14,15 +14,15 @@
     <NeutralLanguage>en</NeutralLanguage>
     <SignAssembly>false</SignAssembly>
 
-    <PackageId>RandomWordGenerator</PackageId>
-    <Version>0.9.2</Version>
+    <PackageId>HexConverter</PackageId>
+    <Version>0.1.0</Version>
     <PackageProjectUrl>https://github.com/cryptic-wizard/hex-converter</PackageProjectUrl>
     <PackageTags>hex converter</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <!--<PackageIcon>icon.png</PackageIcon>-->
-    <PackageDescription>A random word generator for .NET and .NET Core</PackageDescription>
-    <PackageReleaseNotes>Added IsWord() function</PackageReleaseNotes>
+    <PackageDescription>A hex string converter for .NET and .NET Core</PackageDescription>
+    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
