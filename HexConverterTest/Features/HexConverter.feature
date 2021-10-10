@@ -84,8 +84,6 @@ Scenario Outline: Faster Than Linq Concat
 	| qty    |
 	| 100    |
 	| 1000   |
-	| 10000  |
-	| 100000 |
 
 Scenario Outline: Faster Than Linq Select
 	When I race Linq Select with <qty> bytes
@@ -95,5 +93,3 @@ Scenario Outline: Faster Than Linq Select
 	| qty    |
 	| 100    |
 	| 1000   |
-	| 10000  |
-	| 100000 |

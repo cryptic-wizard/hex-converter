@@ -199,7 +199,7 @@ namespace HexConverter
 
             for (int i = 0; i < split.Length; i++)
             {
-                Assert.AreEqual(result[i], HexArray[i], "ERROR - " + result[i] + " != " + HexArray[i]);
+                Assert.AreEqual(split[i], HexArray[i], "ERROR - " + split[i] + " != " + HexArray[i]);
             }
         }
 

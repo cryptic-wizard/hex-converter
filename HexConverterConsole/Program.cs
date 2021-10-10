@@ -12,6 +12,7 @@ namespace HexConverter
             string hex = HexConverter.GetHex(byteArray);
             byte[] hexBytes1 = HexConverter.GetBytes(hex);
             byte[] hexBytes2 = HexConverter.GetBytes(hexArray);
+            hexArray = HexConverter.GetHexArray(hexBytes1);
 
             int debug = 0;
         }
