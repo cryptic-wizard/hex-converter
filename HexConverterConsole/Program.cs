@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using HexConverter;
 
 namespace HexConverter
@@ -8,13 +9,18 @@ namespace HexConverter
         static void Main(string[] args)
         {
             byte[] byteArray = { 42, 84, 255, 0 };
+
+            string hex = "2A54FF00";
             string[] hexArray = { "2A", "54", "FF", "00" };
-            string hex = HexConverter.GetHex(byteArray);
+            List<string> hexList = new List<string> { "2A", "54", "FF", "00" };
+
             byte[] hexBytes1 = HexConverter.GetBytes(hex);
             byte[] hexBytes2 = HexConverter.GetBytes(hexArray);
-            hexArray = HexConverter.GetHexArray(hexBytes1);
+            byte[] hexBytes3 = HexConverter.GetBytes(hexList);
 
-            int debug = 0;
+            hex = HexConverter.GetHex(hexBytes1);
+            hexArray = HexConverter.GetHexArray(hexBytes2);
+            hexList = HexConverter.GetHexList(hexBytes3);
         }
     }
 }

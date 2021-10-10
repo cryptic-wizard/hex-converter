@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace HexConverter
 {
@@ -18,6 +19,7 @@ namespace HexConverter
         private bool ExceptionThrown = false;
         private string Hex;
         private string[] HexArray;
+        private List<string> HexList;
 
         public HexConverterStepDefinitions(ScenarioContext scenarioContext)
         {
@@ -76,6 +78,12 @@ namespace HexConverter
             HexArray = stringArray.Split(',');
         }
 
+        [Given(@"I have string list (.*)")]
+        public void GivenIHaveStringListX(string stringArray)
+        {
+            HexList = stringArray.Split(',').ToList();
+        }
+
         [Given(@"I have hex string (.*)")]
         public void GivenIHaveHexStringX(string hex)
         {
@@ -111,6 +119,19 @@ namespace HexConverter
             }
         }
 
+        [When(@"I convert the byte array to a hex list")]
+        public void WhenIConvertTheByteArrayToAHexList()
+        {
+            try
+            {
+                HexList = HexConverter.GetHexList(ByteArray);
+            }
+            catch (Exception)
+            {
+                ExceptionThrown = true;
+            }
+        }
+
         [When(@"I convert the string to a byte array")]
         public void WhenIConvertTheStringToAByteArray()
         {
@@ -131,6 +152,19 @@ namespace HexConverter
             try
             {
                 ByteArray = HexConverter.GetBytes(HexArray);
+            }
+            catch (Exception)
+            {
+                ExceptionThrown = true;
+            }
+        }
+
+        [When(@"I convert the string list to a byte array")]
+        public void WhenIConvertTheStringListToAByteArray()
+        {
+            try
+            {
+                ByteArray = HexConverter.GetBytes(HexList);
             }
             catch (Exception)
             {
@@ -200,6 +234,19 @@ namespace HexConverter
             for (int i = 0; i < split.Length; i++)
             {
                 Assert.AreEqual(split[i], HexArray[i], "ERROR - " + split[i] + " != " + HexArray[i]);
+            }
+        }
+
+        [Then(@"the result string list is (.*)")]
+        public void ThenTheResultStringListIsX(string result)
+        {
+            Assert.IsNotNull(HexList);
+            string[] split = result.Split(',');
+            Assert.AreEqual(split.Length, HexList.Count, "Length of byte array did not match");
+
+            for (int i = 0; i < split.Length; i++)
+            {
+                Assert.AreEqual(split[i], HexList[i], "ERROR - " + split[i] + " != " + HexList[i]);
             }
         }
 

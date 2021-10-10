@@ -118,6 +118,23 @@ namespace HexConverter
             return hexArray;
         }
 
+        public static List<string> GetHexList(byte[] bytes)
+        {
+            if (bytes == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            List<string> hexArray = new List<string>();
+
+            for (int i = 0; i < bytes.Length; i++)
+            {
+                hexArray.Add(ByteToHex[bytes[i]]);
+            }
+
+            return hexArray;
+        }
+
         public static byte[] GetBytes(string[] hex)
         {
             if(hex == null)
@@ -128,6 +145,23 @@ namespace HexConverter
             byte[] byteArray = new byte[hex.Length];
 
             for (int i = 0; i < hex.Length; i++)
+            {
+                byteArray[i] = HexToByte[hex[i]];
+            }
+
+            return byteArray;
+        }
+
+        public static byte[] GetBytes(List<string> hex)
+        {
+            if (hex == null)
+            {
+                throw new ArgumentNullException();
+            }
+
+            byte[] byteArray = new byte[hex.Count];
+
+            for (int i = 0; i < hex.Count; i++)
             {
                 byteArray[i] = HexToByte[hex[i]];
             }

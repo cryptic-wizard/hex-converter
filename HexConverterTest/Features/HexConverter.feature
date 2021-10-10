@@ -26,6 +26,16 @@ Scenario Outline: Byte Array To Hex Array
 	| 42,84,255,0 | 2A,54,FF,00 |
 	| 255         | FF          |
 
+Scenario Outline: Byte Array To String Array
+	Given I have byte array <bytes>
+	When I convert the byte array to a hex list
+	Then the result string list is <hexList>
+
+	Examples:
+	| bytes       | hexList     |
+	| 42,84,255,0 | 2A,54,FF,00 |
+	| 255         | FF          |
+
 Scenario Outline: String Array To Byte Array
 	Given I have string array <hexArray>
 	When I convert the string array to a byte array
@@ -36,6 +46,16 @@ Scenario Outline: String Array To Byte Array
 	| 2A,54,FF,00 | 42,84,255,0 |
 	| FF          | 255         |
 
+Scenario Outline: String List To Byte Array
+	Given I have string list <hexList>
+	When I convert the string list to a byte array
+	Then the result byte array is <bytes>
+
+	Examples:
+	| hexList     | bytes       |
+	| 2A,54,FF,00 | 42,84,255,0 |
+	| FF          | 255         |
+
 Scenario Outline: Invalid String Array To ByteArray
 	Given I have string array <hexArray>
 	When I convert the string array to a byte array
@@ -43,6 +63,16 @@ Scenario Outline: Invalid String Array To ByteArray
 
 	Examples:
 	| hexArray    |
+	| 2A,54,F,00  |
+	| FX          |
+
+Scenario Outline: Invalid String List To ByteArray
+	Given I have string list <hexList>
+	When I convert the string list to a byte array
+	Then an exception was thrown
+
+	Examples:
+	| hexList     |
 	| 2A,54,F,00  |
 	| FX          |
 
