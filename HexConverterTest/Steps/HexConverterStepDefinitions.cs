@@ -11,8 +11,8 @@ namespace HexConverter
     {
         private readonly ScenarioContext _scenarioContext;
         private static Stopwatch sw = new Stopwatch();
-        private long LinqTicks = 0;
-        private long HexConverterTicks = 0;
+        private long LinqMillis = 0;
+        private long HexConverterMillis = 0;
 
         private byte[] ByteArray;
         private bool ExceptionThrown = false;
@@ -31,8 +31,8 @@ namespace HexConverter
             Hex = null;
             HexArray = null;
             ExceptionThrown = false;
-            LinqTicks = 0;
-            HexConverterTicks = 0;
+            LinqMillis = 0;
+            HexConverterMillis = 0;
 
             sw.Stop();
             sw.Reset();
@@ -147,14 +147,14 @@ namespace HexConverter
             sw.Restart();
             string.Concat(ByteArray.Select(b => b.ToString("x2")));
             sw.Stop();
-            LinqTicks = sw.ElapsedTicks;
-            Console.WriteLine(LinqTicks.ToString() + " = Linq");
+            LinqMillis = sw.ElapsedMilliseconds;
+            Console.WriteLine(LinqMillis.ToString() + " = Linq");
 
             sw.Restart();
             HexConverter.GetHex(ByteArray);
             sw.Stop();
-            HexConverterTicks = sw.ElapsedTicks;
-            Console.WriteLine(HexConverterTicks.ToString() + " = HexConverter");
+            HexConverterMillis = sw.ElapsedMilliseconds;
+            Console.WriteLine(HexConverterMillis.ToString() + " = HexConverter");
         }
 
         [When(@"I race Linq Select with (\d+) bytes")]
@@ -170,14 +170,14 @@ namespace HexConverter
                .Select(x => Convert.ToByte(Hex.Substring(x, 2), 16))
                .ToArray();
             sw.Stop();
-            LinqTicks = sw.ElapsedTicks;
-            Console.WriteLine(LinqTicks.ToString() + " = Linq");
+            LinqMillis = sw.ElapsedMilliseconds;
+            Console.WriteLine(LinqMillis.ToString() + " = Linq");
 
             sw.Restart();
             HexConverter.GetBytes(Hex);
             sw.Stop();
-            HexConverterTicks = sw.ElapsedTicks;
-            Console.WriteLine(HexConverterTicks.ToString() + " = HexConverter");
+            HexConverterMillis = sw.ElapsedMilliseconds;
+            Console.WriteLine(HexConverterMillis.ToString() + " = HexConverter");
         }
 
         #endregion
@@ -233,7 +233,7 @@ namespace HexConverter
         [Then(@"HexConverter is faster")]
         public void ThenHexConverterIsFaster()
         {
-            Assert.Less(HexConverterTicks, LinqTicks);
+            Assert.Less(HexConverterMillis, LinqMillis);
         }
 
         #endregion
