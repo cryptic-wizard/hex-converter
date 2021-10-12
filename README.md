@@ -7,6 +7,8 @@
 
 [![.NET Core 3.1](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml)
 
+[![Nuget](https://img.shields.io/badge/nuget-v0.1.1-blue)](https://www.nuget.org/packages/)
+
 ## Usage
 #### Install Package:
 ```Text
