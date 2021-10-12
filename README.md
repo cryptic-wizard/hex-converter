@@ -1,4 +1,5 @@
 # hex-converter
+[![nuget](https://img.shields.io/badge/nuget-v0.1.1-blue)](https://www.nuget.org/packages/CrypticWizard.HexConverter)
 ## Description
 * A hex converter utility using dictionaries
 
@@ -7,10 +8,10 @@
 
 [![.NET Core 3.1](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml)
 
-[![Nuget](https://img.shields.io/badge/nuget-v0.1.1-blue)](https://www.nuget.org/packages/CrypticWizard.HexConverter)
+[![Nuget Publish](https://github.com/cryptic-wizard/hex-converter/actions/workflows/nuget.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/nuget.yml)
 
 ## Usage
-#### Install Package:
+### Install Package
 ```Text
 dotnet add package CrypticWizard.HexConverter
 ```
@@ -76,7 +77,11 @@ byte[] bytes = HexConverter.GetBytes(hexList);
 ### Recently Added
 v0.1.1
 ```C#
+GetHex( byte[] )
+GetHexArray( byte[] )
 GetHexList( byte[] )
+GetBytes( string )
+GetBytes( string[] )
 GetBytes( List<string> )
 ```
 ### Planned Features

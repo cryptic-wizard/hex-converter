@@ -17,7 +17,7 @@
     <PackageId>CrypticWizard.HexConverter</PackageId>
     <Version>0.1.1</Version>
     <PackageProjectUrl>https://github.com/cryptic-wizard/hex-converter</PackageProjectUrl>
-    <PackageTags>hex converter</PackageTags>
+    <PackageTags>hex hexadecimal</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>

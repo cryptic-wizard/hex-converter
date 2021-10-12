@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Collections.Generic;
 
-namespace HexConverter
+namespace CrypticWizard.HexConverter
 {
     [Binding]
     public sealed class HexConverterStepDefinitions
