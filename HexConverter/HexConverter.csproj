@@ -14,7 +14,7 @@
     <NeutralLanguage>en</NeutralLanguage>
     <SignAssembly>false</SignAssembly>
 
-    <PackageId>HexConverter</PackageId>
+    <PackageId>CrypticWizard.HexConverter</PackageId>
     <Version>0.1.1</Version>
     <PackageProjectUrl>https://github.com/cryptic-wizard/hex-converter</PackageProjectUrl>
     <PackageTags>hex converter</PackageTags>

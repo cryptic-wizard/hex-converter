@@ -8,6 +8,14 @@
 [![.NET Core 3.1](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml)
 
 ## Usage
+#### Install Package:
+```Text
+dotnet add package CrypticWizard.HexConverter
+```
+```xml
+<PackageReference Include="CrypticWizard.HexConverter" Version="0.1.1"/>
+```
+
 ### GetHex( byte[] )
 ```C#
 byte[] byteArray = { 42, 84, 255, 0 };
