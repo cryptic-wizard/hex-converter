@@ -19,6 +19,11 @@ dotnet add package CrypticWizard.HexConverter
 <PackageReference Include="CrypticWizard.HexConverter" Version="0.1.1"/>
 ```
 
+### Include Package:
+```C#
+using CrypticWizard.HexConverter;
+```
+
 ### GetHex( byte[] )
 ```C#
 byte[] byteArray = { 42, 84, 255, 0 };
