@@ -91,14 +91,14 @@ namespace CrypticWizard.HexConverter
         /// <returns> Ex. "2A54FF00" </returns>
         public static string GetHex(byte[] bytes)
         {
-            if(bytes == null)
+            if (bytes == null)
             {
                 throw new ArgumentNullException();
             }
 
             string[] hexArray = new string[bytes.Length];
 
-            for(int i = 0; i < bytes.Length; i++)
+            for (int i = 0; i < bytes.Length; i++)
             {
                 hexArray[i] = ByteToHex[bytes[i]];
             }
@@ -157,7 +157,7 @@ namespace CrypticWizard.HexConverter
         /// <returns></returns>
         public static byte[] GetBytes(string[] hex)
         {
-            if(hex == null)
+            if (hex == null)
             {
                 throw new ArgumentNullException();
             }
@@ -201,11 +201,11 @@ namespace CrypticWizard.HexConverter
         /// <returns></returns>
         public static byte[] GetBytes(string hex)
         {
-            if(hex == null)
+            if (hex == null)
             {
                 throw new ArgumentNullException();
             }
-            else if(hex.Length % 2 != 0)
+            else if (hex.Length % 2 != 0)
             {
                 throw new ArgumentException("Hex string length does not have a factor of 2");
             }

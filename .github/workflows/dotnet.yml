@@ -1,8 +1,8 @@
-name: .NET 5.0
+name: .NET 6.0
 on:
-  push:
+  #push:
     #branches: [ main ]
-  #pull_request:
+  pull_request:
     #branches: [ main ]
 
 jobs:
@@ -14,16 +14,10 @@ jobs:
     - uses: actions/checkout@v2
     - uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '5.0.x'
-    - uses: cryptic-wizard/run-specflow-tests@v1.2.0
+        dotnet-version: '6.0.x'
+    - uses: cryptic-wizard/run-specflow-tests@v1.3.1
       with:
-        test-assembly-path: HexConverterTest/bin/Release/net5.0
+        test-assembly-path: HexConverterTest/bin/Release/net6.0
         test-assembly-dll: HexConverterTest.dll
-        test-execution-json: TestExecution.json
         output-html: HexConverterResults.html
-        framework: net5.0
-    - if: success() || failure()
-      uses: actions/upload-artifact@v2
-      with:
-        name: HexConverterTestResults
-        path: HexConverterResults.html
+        framework: net6.0
