@@ -4,7 +4,7 @@
 * A hex converter utility using dictionaries
 
 ## Tests
-[![.NET 5.0](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnet.yml)
+[![.NET 6.0](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnet.yml)
 
 [![.NET Core 3.1](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml/badge.svg)](https://github.com/cryptic-wizard/hex-converter/actions/workflows/dotnetcore.yml)
 

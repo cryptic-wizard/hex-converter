@@ -1,8 +1,8 @@
 name: .NET Core 3.1
 on:
-  push:
+  #push:
     #branches: [ main ]
-  #pull_request:
+  pull_request:
     #branches: [ main ]
 
 jobs:
@@ -15,15 +15,9 @@ jobs:
     - uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '3.1.x'
-    - uses: cryptic-wizard/run-specflow-tests@v1.2.0
+    - uses: cryptic-wizard/run-specflow-tests@v1.3.1
       with:
         test-assembly-path: HexConverterTest/bin/Release/netcoreapp3.1
         test-assembly-dll: HexConverterTest.dll
-        test-execution-json: TestExecution.json
         output-html: HexConverterResults.html
         framework: netcoreapp3.1
-    - if: success() || failure()
-      uses: actions/upload-artifact@v2
-      with:
-        name: HexConverterTestResults
-        path: HexConverterResults.html
