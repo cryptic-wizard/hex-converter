@@ -1,5 +1,5 @@
 # hex-converter
-[![nuget](https://img.shields.io/badge/nuget-v0.1.1-blue)](https://www.nuget.org/packages/CrypticWizard.HexConverter)
+[![nuget](https://img.shields.io/badge/nuget-v0.2.0-blue)](https://www.nuget.org/packages/CrypticWizard.HexConverter)
 ## Description
 * A hex converter utility using dictionaries
 
@@ -16,7 +16,7 @@
 dotnet add package CrypticWizard.HexConverter
 ```
 ```xml
-<PackageReference Include="CrypticWizard.HexConverter" Version="0.1.1"/>
+<PackageReference Include="CrypticWizard.HexConverter" Version="0.2.0"/>
 ```
 
 ### Include Package:
