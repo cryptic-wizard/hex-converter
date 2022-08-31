@@ -15,14 +15,14 @@
     <SignAssembly>false</SignAssembly>
 
     <PackageId>CrypticWizard.HexConverter</PackageId>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <PackageProjectUrl>https://github.com/cryptic-wizard/hex-converter</PackageProjectUrl>
     <PackageTags>hex hexadecimal</PackageTags>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
     <PackageDescription>A hex string converter for .NET and .NET Core</PackageDescription>
-    <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated to .NET 6.0</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
