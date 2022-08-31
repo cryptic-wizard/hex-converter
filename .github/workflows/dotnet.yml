@@ -17,7 +17,7 @@ jobs:
         dotnet-version: '6.0.x'
     - uses: cryptic-wizard/run-specflow-tests@v1.3.1
       with:
-        test-assembly-path: HexConverterTest/bin/Release/net6.0
-        test-assembly-dll: HexConverterTest.dll
+        test-assembly-path: Tests/bin/Release/net6.0
+        test-assembly-dll: Tests.dll
         output-html: HexConverterResults.html
         framework: net6.0

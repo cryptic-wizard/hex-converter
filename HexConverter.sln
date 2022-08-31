@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31702.278
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexConverter", "HexConverter\HexConverter.csproj", "{0612FD11-CCA5-42B5-9C54-841C6A72D3FE}"
 EndProject
@@ -15,9 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexConverterTest", "HexConverterTest\HexConverterTest.csproj", "{082EC445-88E3-4AC9-9668-A13B5C0EA16E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HexConverterConsole", "HexConverterConsole\HexConverterConsole.csproj", "{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests", "Tests\Tests.csproj", "{EF016EF5-1830-4949-87B2-8077860AC571}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,14 +27,10 @@ Global
 		{0612FD11-CCA5-42B5-9C54-841C6A72D3FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0612FD11-CCA5-42B5-9C54-841C6A72D3FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0612FD11-CCA5-42B5-9C54-841C6A72D3FE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{082EC445-88E3-4AC9-9668-A13B5C0EA16E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{082EC445-88E3-4AC9-9668-A13B5C0EA16E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{082EC445-88E3-4AC9-9668-A13B5C0EA16E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{082EC445-88E3-4AC9-9668-A13B5C0EA16E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D34383A-25E7-4F7A-8C6D-501362FC7FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF016EF5-1830-4949-87B2-8077860AC571}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF016EF5-1830-4949-87B2-8077860AC571}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF016EF5-1830-4949-87B2-8077860AC571}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF016EF5-1830-4949-87B2-8077860AC571}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
