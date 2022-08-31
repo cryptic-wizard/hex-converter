@@ -24,10 +24,10 @@ dotnet add package CrypticWizard.HexConverter
 using CrypticWizard.HexConverter;
 ```
 
-### GetHex( byte[] )
+### GetHexString( byte[] )
 ```C#
 byte[] byteArray = { 42, 84, 255, 0 };
-string hex = HexConverter.GetHex(byteArray);
+string hex = HexConverter.GetHexString(byteArray);
 ```
 ```Text
 "2A54FF00"
@@ -80,6 +80,10 @@ byte[] bytes = HexConverter.GetBytes(hexList);
 
 ## Features
 ### Recently Added
+v0.2.0
+```C#
+GetHexString( byte[] ) <-- GetHex( byte[] )
+```
 v0.1.1
 ```C#
 GetHex( byte[] )

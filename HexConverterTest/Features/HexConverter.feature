@@ -90,6 +90,7 @@ Scenario Outline: String To Byte Array
 	| hex      | bytes       |
 	| 2A54FF00 | 42,84,255,0 |
 	| FF       | 255         |
+	| F00      | 15,0        |
 
 Scenario Outline: Invalid String To ByteArray
 	Given I have hex string <hex>
@@ -98,10 +99,31 @@ Scenario Outline: Invalid String To ByteArray
 
 	Examples:
 	| hex      |
-	| 2A54F00  |
+	| 2A54FX0  |
 	| FX       |
 
 Scenario: Null String To ByteArray
 	Given I have a null string
 	When I convert the string to a byte array
 	Then an exception was thrown
+
+Scenario Outline: Faster Than Linq Concat
+	When I race Linq Concat with <qty> bytes
+	Then HexConverter is faster
+
+	Examples:
+	| qty    |
+	| 100    |
+	| 1000   |
+	| 10000  |
+	| 100000 |
+
+Scenario Outline: Faster Than Linq Select
+	When I race Linq Select with <qty> bytes
+	Then HexConverter is faster
+
+	Examples:
+	| qty    |
+	| 100    |
+	| 1000   |
+	| 10000  |

@@ -21,4 +21,12 @@
     <ProjectReference Include="..\HexConverter\HexConverter.csproj" />
   </ItemGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+		<LangVersion>preview</LangVersion>
+	</PropertyGroup>
+
 </Project>

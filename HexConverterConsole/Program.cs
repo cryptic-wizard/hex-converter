@@ -18,7 +18,7 @@ namespace CrypticWizard.HexConverter
             byte[] hexBytes2 = HexConverter.GetBytes(hexArray);
             byte[] hexBytes3 = HexConverter.GetBytes(hexList);
 
-            hex = HexConverter.GetHex(hexBytes1);
+            hex = HexConverter.GetHexString(hexBytes1);
             hexArray = HexConverter.GetHexArray(hexBytes2);
             hexList = HexConverter.GetHexList(hexBytes3);
         }
